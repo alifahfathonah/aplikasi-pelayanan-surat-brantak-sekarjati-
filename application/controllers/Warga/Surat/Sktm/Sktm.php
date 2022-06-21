@@ -35,7 +35,7 @@ class Sktm extends CI_Controller
 		} else {
 
 			if ($cek) {
-				$this->session->set_flashdata('error', 'Anda tidak dapat melakukan permohonan surat <span class="font-bold">SKTM</span> karena masih ada yang belum terverivikasi !');
+				$this->session->set_flashdata('error', 'Maaf, anda tidak dapat melakukan permohonan surat <span class="font-bold">SKTM</span> karena masih ada yang belum terverivikasi !');
 				redirect('list-surat', 'refresh');
 			} else {
 
