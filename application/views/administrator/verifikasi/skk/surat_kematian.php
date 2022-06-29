@@ -42,7 +42,7 @@
                                                             ?>
                                                         </td>
                                                         <td>
-                                                            <a href="<?= base_url('preview-skk/' . $data->id) ?>"><span class="badge bg-info">Priview Data</span></a>
+                                                            <a href="<?= base_url('preview-skk/' . $data->id) ?>"><span class="badge bg-info">Preview Data</span></a>
                                                         </td>
                                                         <td>
                                                             <?php if ($this->session->userdata('role_id') == 1) { ?>
