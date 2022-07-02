@@ -48,6 +48,7 @@
             												<?php if ($this->session->userdata('role_id') == 1) { ?>
             													<?php if ($data->status == 'Menunggu Verifikasi') { ?>
             														<div class="btn-group">
+            															<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambahKomentar<?= $data->id ?>">Komentar</button>
             															<form action="<?= base_url('update-status-skp') ?>" method="post" enctype="multipart/form-data">
             																<input type="hidden" name="id" value="<?= $data->id ?>" class="form-control" readonly>
             																<input type="hidden" name="id_warga" value="<?= $data->id_warga ?>" class="form-control" readonly>
@@ -77,35 +78,7 @@
             																<i class="bi bi-trash-fill"></i>
             															</button>
             														</div>
-            														<div class="modal fade" id="tambahKomentar<?= $data->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            															<div class="modal-dialog">
-            																<div class="modal-content">
-            																	<div class="modal-header bg-info">
-            																		<h5 class="modal-title text-dark" id="exampleModalLabel">Tambah Komentar</h5>
-            																		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            																			<span aria-hidden="true">&times;</span>
-            																		</button>
-            																	</div>
-            																	<div class="modal-body">
-            																		<div class="row">
-            																			<div class="col-lg-12">
-            																				<form action="<?= base_url('komentar-skp/') . $data->id ?>" method="post" enctype="multipart/form-data">
-            																					<div class="form-group">
-            																						<label for="">Komentar</label>
-            																						<textarea name="komentar" class="form-control" cols="30" rows="10"><?= $data->komentar ?></textarea>
-            																					</div>
-            																					<div class="form-group">
-            																						<button class="btn btn-success btn-sm" type="submit">Simpan</button>
-            																					</div>
-            																				</form>
-            																			</div>
-            																		</div>
-            																	</div>
-            																	<div class="modal-footer">
-            																	</div>
-            																</div>
-            															</div>
-            														</div>
+
             													<?php } ?>
 
             													<div class="modal fade" id="hapus<?= $data->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -136,6 +109,7 @@
             														<small class="text-danger text-center font-bold">No Action</small>
             													<?php }
 																if ($data->status == 'Terverifikasi') { ?>
+            														<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambahKomentar<?= $data->id ?>">Komentar</button>
             														<div class="btn-group">
             															<form action="<?= base_url('update-status-skp') ?>" method="post" enctype="multipart/form-data">
             																<input type="hidden" name="id" value="<?= $data->id ?>" class="form-control" readonly>
@@ -156,37 +130,39 @@
             														</div>
             													<?php } else if ($data->status == 'Ditolak') { ?>
             														<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambahKomentar<?= $data->id ?>">Komentar</button>
-            														<div class="modal fade" id="tambahKomentar<?= $data->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            															<div class="modal-dialog">
-            																<div class="modal-content">
-            																	<div class="modal-header bg-info">
-            																		<h5 class="modal-title text-dark" id="exampleModalLabel">Tambah Komentar</h5>
-            																		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            																			<span aria-hidden="true">&times;</span>
-            																		</button>
-            																	</div>
-            																	<div class="modal-body">
-            																		<div class="row">
-            																			<div class="col-lg-12">
-            																				<form action="<?= base_url('komentar-skp/') . $data->id ?>" method="post" enctype="multipart/form-data">
-            																					<div class="form-group">
-            																						<label for="">Komentar</label>
-            																						<textarea name="komentar" class="form-control" cols="30" rows="10"><?= $data->komentar ?></textarea>
-            																					</div>
-            																					<div class="form-group">
-            																						<button class="btn btn-success btn-sm" type="submit">Simpan</button>
-            																					</div>
-            																				</form>
+            													<?php } ?>
+            												<?php } ?>
+
+            												<div class="modal fade" id="tambahKomentar<?= $data->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            													<div class="modal-dialog">
+            														<div class="modal-content">
+            															<div class="modal-header bg-info">
+            																<h5 class="modal-title text-dark" id="exampleModalLabel">Tambah Komentar</h5>
+            																<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            																	<span aria-hidden="true">&times;</span>
+            																</button>
+            															</div>
+            															<div class="modal-body">
+            																<div class="row">
+            																	<div class="col-lg-12">
+            																		<form action="<?= base_url('komentar-skp/') . $data->id ?>" method="post" enctype="multipart/form-data">
+            																			<div class="form-group">
+            																				<label for="">Komentar</label>
+            																				<textarea name="komentar" class="form-control" cols="30" rows="10"><?= $data->komentar ?></textarea>
             																			</div>
-            																		</div>
-            																	</div>
-            																	<div class="modal-footer">
+            																			<div class="form-group">
+            																				<button class="btn btn-success btn-sm" type="submit">Simpan</button>
+            																			</div>
+            																		</form>
             																	</div>
             																</div>
             															</div>
+            															<div class="modal-footer">
+            															</div>
             														</div>
-            													<?php } ?>
-            												<?php } ?>
+            													</div>
+            												</div>
+
             											</td>
             										</tr>
             									<?php $n++;

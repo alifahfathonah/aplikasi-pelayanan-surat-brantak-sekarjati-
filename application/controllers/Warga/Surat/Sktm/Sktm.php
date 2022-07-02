@@ -123,7 +123,7 @@ class Sktm extends CI_Controller
 					}
 
 					$config['upload_path'] = './assets/file_rumah/'; //folder penyimpanana gambar
-					$config['file_name'] = $filektp;
+					$config['file_name'] = $filerumah;
 					$config['allowed_types'] = 'jpeg|png|jpg|JPEG|PNG|JPG';
 					$config['max_size'] = '3024';
 					$config['remove_space'] = TRUE;
